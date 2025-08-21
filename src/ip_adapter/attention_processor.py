@@ -6,7 +6,11 @@ from diffusers.models.lora import LoRACompatibleLinear
 from diffusers.models.lora import LoRALinearLayer,LoRAConv2dLayer
 from einops import rearrange
 
-from diffusers.models.transformer_2d import Transformer2DModel
+try:
+    from diffusers.models.transformer_2d import Transformer2DModel
+except ImportError:
+    from diffusers.models.transformers.transformer_2d import Transformer2DModel
+#from diffusers.models.transformer_2d import Transformer2DModel
 
 class AttnProcessor(nn.Module):
     r"""
